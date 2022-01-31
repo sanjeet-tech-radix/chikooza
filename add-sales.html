@@ -37,7 +37,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
+        <div id="layoutSidenav" style="margin-bottom: 80px;">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -174,31 +174,234 @@
                         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
                         
-                        <form>
-                          <div class="form-group row" style="margin-top:30px">
-                            <label for="" class="col-2 col-form-label"><b style="font-size: 20px;">Select Farm</b></label> 
-                            <div class="col-10">
-                              <select id="" name="" class="custom-select" required="required" style="width: 50%;">
-                                <option value="rabbit">Select Farm</option>
-                                <option value="duck">No Farm Found</option>
-                              </select>
-                            </div>
-                          </div> 
-                          <div class="form-group row">
-                            <div class="offset-2 col-10">
-                              <button name="submit" type="submit" class="btn btn-danger">Cancel</button>
-                              <button name="submit" type="submit" class="btn btn-primary">Proceed to next step</button>
-                            </div>
+                        <form >
+                        <div class="form-group row">
+                          <label for="select" class="col-2 col-form-label" ><b> Select Farm</b></label> 
+                          <div class="col-4">
+                            <select id="select" name="select" class="custom-select">
+                                <option value="test farm">Select Farm</option>
+                                <option value="test farm">Farm1</option>
+                              <option value="test farm">Test Farm</option>
+                            </select>
                           </div>
+                        
+                      
+                          <label for="select1" class="col-2 col-form-label"><b>Select Flock</b></label> 
+                          <div class="col-4">
+                            <select id="select1" name="select1" class="custom-select">
+                                <option value="Flock1"> Select Flock</option>
+                              <option value="Flock1">Test first</option>
+                            </select>
+                          </div>
+                        </div> 
+                        <div class="form-group row" style="margin-top: 30px;">
+                          
+                      
+                          <label for="select" class="col-2 col-form-label"><b>Select Sale Type</b></label> 
+                          <div class="col-4">
+                            <select id="select" name="select" class="custom-select">
+                              <option value="select">Select Sale Type</option>
+                              <option value="feed">Partial Lifting</option>
+                              <option value="medicine">Final Lifting</option>
+                             
+                            </select>
+                          </div>
+                        </div>
+                      </form> 
+                      <div class="offset-2 col-10" style="margin-top:30px; margin-left: 0px; display: flex; flex-direction: row;">
+                        <button name="submit" type="submit" class="btn btn-danger" style="width: 140px;">Cancel</button>
+                        <button name="submit" type="submit" class="btn btn-primary"style="width: 200px; margin-left: 20px;">Proceed to next step</button>
+                        </div></form>
                         </form>
-   
+                         <hr style="margin-top:30px;"/>
+                        <h1 style="text-align: center; font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top: 40px;">Flock Lifting - Partial</h1>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="col">
+                               <label id="box1" class="box" style="font-size:13px; padding-bottom:0px;color:black;"><b>Flock</b></label>
+                              <input type="text" class="form-control valid" id="flock_name" value="test first" name="flock_name" readonly="" aria-invalid="false"/>
+                            </div>
+                            <div class="col">
+                               <label id="box2" class="box" style="font-size:13px; padding-bottom:0px;color:black;"><b>Current Count</b></label>
+                              <input type="text" class="form-control" id="flock_age" value="199" name="flock_age" readonly=""/>
+                            </div>
+                            <div class="col">
+                               <label id="box3" class="box" style="font-size:13px; padding-bottom:0px;color:black;"><b>Age</b></label>
+                              <input type="text" class="form-control" id="bird_cnt" value="27" name="bird_cnt" readonly=""/>
+                            </div></div></div>
+                            <h1 style="font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top:40px; margin-bottom: 20px; margin-left:20px;">
+                                Flock Lifting Data</h1>
+                            <div class="sale_container">
+                                <div class="row">
+                                    <div class="form-group" style="margin-bottom:10px;width:50%">
+                                        <div class="col-md-4" style="padding-left:15px; padding-top:0px;;max-width:100%">
+                                            <label id="lbldate" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Date</label>
+                                            <input type="date" data-provide="datepicker" name="saledate" data-date-format="yyyy-mm-dd" data-date-end-date="0d" data-date-startdate="-1m" data-date-autoclose="true" class="form-control" placeholder="Sale Date" maxlength="12" size="12" onchange="updateAge(this)" required="" aria-required="true"> </div>
+                                    </div>
+                                    
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-6" style="padding-left:15px;padding-top:0px;;max-width:100%">
+                                            <label id="lblsalecnt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Lifting Count</label>
+                                            <input type="text" name="salecnt" id="salecnt" pattern="^[0-9\-]*$" class="form-control" style="padding:6px 2px;" max="199" min="0" placeholder="0" onchange="updateBirdCount(this)" required="" aria-required="true"> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-6" style="max-width:100%">
+                                            <label id="lblsalecnt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Total Wt.</label>
+                                            <input type="text" name="total_weight" id="total_weight" pattern="^[0-9\-]*$" class="form-control" style="padding:6px 2px;" onchange="updateAvgWt(this)" min="0" placeholder="0" required="" aria-required="true"> </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-6" style="max-width:100%">
+                                            <label id="lblliftwt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Avg. Wt(Kg)</label>
+                                            <input readonly="" type="text" name="liftwt" id="liftwt" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" maxlength="12" size="12" placeholder="0" required="" aria-required="true"> </div>
+                                    </div>
+                                </div>
+                                <div class="row" >
+											
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-5" style="max-width:100%">
+                                            <label id="lblsaleamt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;-color:black;">Rate/kg</label>
+                                            <input type="text" name="rate" id="rate" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" onchange="updateRate(this)" maxlength="5" size="5" placeholder="0"> </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-6" style="max-width:100%">
+                                            <label id="lblsaleamt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Cost</label>
+                                            <input readonly="" type="text" name="saleamt" id="saleamt" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" maxlength="12" size="12" placeholder="0"> </div>
+                                    </div>
+                                    
+                                </div></div>
+                                <h1 style="font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top:40px; margin-bottom: 20px; margin-left:20px;">
+                                   Other Data</h1>
+                                   <div class="row">
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-10" style="max-width:100%">
+                                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Buyer</label>
+                                            <input type="text" name="party" id="party" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                                        <div class="col-md-10" style="max-width:100%">
+                                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Vehicle No.</label>
+                                            <input type="text" name="vehicle" id="vehicle" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row" style="margin-left: 5px; margin-bottom: 50px;">
+                                    <div class="col-11">
+                                    <label for="text5" class=" col-form-label"><b>Remark</b></label> 
+                                   
+                                      <input id="text5" name="text5" type="text" class="form-control">
+                                    </div>
+                                  </div> 
+                                  <div class="offset-2 col-10" style="margin-top:30px; margin-left: 0px; display: flex; flex-direction: row;">
+                                    <button name="submit" type="submit" class="btn btn-danger" style="width: 140px;">Cancel</button>
+                                    <button name="submit" type="submit" class="btn btn-primary"style="width: 140px; margin-left: 20px;">Save</button>
+                                    </div></form>
+                                  <hr>
+                                  <h1 style="text-align: center; font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top: 40px;">Flock Lifting - Partial</h1>
+                                <div class="row" style="margin-bottom: 10px; display: flex; justify-content: center ;">
+					<div class="col-5">
+						<label id="lblflk" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Flock</label>
+						<input type="text" class="form-control" id="flock_name" value="Netram" name="flock_name" readonly=""> </div>
+					<div class="col-5">
+						<label id="lbldate" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Current Count</label>
+						<input type="text" class="form-control" id="curcnt" value="2468" name="curcnt" readonly=""> </div>
+				</div>
+                <h1 style="font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top:40px; margin-bottom: 20px; margin-left:20px;">
+                    Flock Lifting Data</h1>
+                   
+                <div class="row">
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblsalecnt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Set Date</label>
+                            <input type="date" name="total_weight" id="total_weight" pattern="^[0-9\-]*$" class="form-control" style="padding:6px 2px;" onchange="updateAvgWt(this)" min="0" placeholder="0" required="" aria-required="true"> </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblliftwt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Age</label>
+                            <input readonly="" type="text" name="liftwt" id="liftwt" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" maxlength="12" size="12" placeholder="0" required="" aria-required="true"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblliftwt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Lifting Count</label>
+                            <input readonly="" type="text" name="liftwt" id="liftwt" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" maxlength="12" size="12" placeholder="2468" required="" aria-required="true"> </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblsalecnt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Lifting Wt(Kg)</label>
+                            <input type="text" name="total_weight" id="total_weight" pattern="^[0-9\-]*$" class="form-control" style="padding:6px 2px;" onchange="updateAvgWt(this)" min="0" placeholder="0" required="" aria-required="true"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblsalecnt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Sale Amount</label>
+                            <input type="text" name="total_weight" id="total_weight" pattern="^[0-9\-]*$" class="form-control" style="padding:6px 2px;" onchange="updateAvgWt(this)" min="0" placeholder="0" required="" aria-required="true"> </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-6" style="max-width:100%">
+                            <label id="lblliftwt" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Rate</label>
+                            <input readonly="" type="text" name="liftwt" id="liftwt" pattern="^[0-9.]*$" class="form-control" style="padding:6px 2px;" maxlength="12" size="12" placeholder="0" required="" aria-required="true"> </div>
+                    </div>
+                </div>
+                <h1 style="font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top:40px; margin-bottom: 20px; margin-left:20px;">
+                  Buyer</h1>
+
+                  <div class="row">
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-10" style="max-width:100%">
+                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Name</label>
+                            <input type="text" name="party" id="party" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-10" style="max-width:100%">
+                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Address</label>
+                            <input type="text" name="vehicle" id="vehicle" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-10" style="max-width:100%">
+                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Phone</label>
+                            <input type="text" name="party" id="party" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:10px; width:50%">
+                        <div class="col-md-10" style="max-width:100%">
+                            <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Email</label>
+                            <input type="email" name="vehicle" id="vehicle" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                    </div>
+                </div>
+                <h1 style="font-size: 30px; font-family: 'Poiret One', cursive; color:black; margin-top:40px; margin-bottom: 20px; margin-left:20px;">
+                    Other Data</h1>
+                    <div class="row">
+                     
+                     <div class="form-group" style="margin-bottom:10px; width:50%">
+                         <div class="col-md-10" style="max-width:100%">
+                             <label id="lblvehicle" class="col-form-label form-control-sm" style="font-size:13px;font-weight:bold;padding-bottom:0px;color:black;">Vehicle No.</label>
+                             <input type="text" name="vehicle" id="vehicle" pattern="[a-zA-Z0-9\-]*" class="form-control" style="padding:6px 2px;" maxlength="15" size="15" placeholder=""> </div>
+                     </div>
+                 </div>
+                 <div class="form-group row" style="margin-left: 5px; margin-bottom: 50px;">
+                     <div class="col-11">
+                     <label for="text5" class=" col-form-label"><b>Remark</b></label> 
+                    
+                       <input id="text5" name="text5" type="text" class="form-control">
+                     </div>
+                   </div> 
+                   <div class="offset-2 col-10" style="margin-top:30px; margin-left: 0px; display: flex; flex-direction: row;">
+                     <button name="submit" type="submit" class="btn btn-danger" style="width: 140px;">Cancel</button>
+                     <button name="submit" type="submit" class="btn btn-primary"style="width: 140px; margin-left: 20px;">Save</button>
+                     </div></form>    
+            
+            </form>
     </div>
   </div>
 </form>
                     </section>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
+                <footer class="py-4 bg-light mt-auto" style="margin-top: 30px;">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Tech Radix 2022</div>
@@ -212,6 +415,7 @@
                 </footer>
             </div>
         </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
